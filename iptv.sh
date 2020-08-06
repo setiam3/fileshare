@@ -38,22 +38,23 @@ IPTV22="$iptvdir/iptv/m3u/vidio.com/transtv/transtv.php"
 IPTV23="$iptvdir/iptv/m3u/vidio.com/tvedu/tvedu.php"
 IPTV24="$iptvdir/iptv/m3u/vidio.com/tvri/tvri.php"
 IPTV25="$iptvdir/iptv/m3u/vidio.com/uchannel/uchannel.php"
+IPTV26="$iptvdir/iptv/m3u/vidio.com/primer/CitraDrama/cdrama.php"
 
-IPTVS=("$IPTV1" "$IPTV2" "$IPTV3" "$IPTV4" "$IPTV5" "$IPTV6" "$IPTV7" "$IPTV8" "$IPTV9" "$IPTV10" "$IPTV11" "$IPTV12" "$IPTV13" "$IPTV14" "$IPTV15" "$IPTV16" "$IPTV17" "$IPTV18" "$IPTV19" "$IPTV20" "$IPTV21" "$IPTV22" "$IPTV23" "$IPTV24" "$IPTV25")
+IPTVS=("$IPTV1" "$IPTV2" "$IPTV3" "$IPTV4" "$IPTV5" "$IPTV6" "$IPTV7" "$IPTV8" "$IPTV9" "$IPTV10" "$IPTV11" "$IPTV12" "$IPTV13" "$IPTV14" "$IPTV15" "$IPTV16" "$IPTV17" "$IPTV18" "$IPTV19" "$IPTV20" "$IPTV21" "$IPTV22" "$IPTV23" "$IPTV24" "$IPTV25" "$IPTV26")
 jumlahtv=${#IPTVS[@]}
 sleeptime="1"
-
+date=
 counter=1
 while [ $counter -le $jumlahtv ]
 do
   target="IPTV$counter"
-  /usr/bin/php ${!target}
+  $phppath ${!target}
   sleep $sleeptime
 ((counter++))
 done
 sleep 2
 git add .
 sleep $sleeptime
-git commit -m "updated.."
+git commit -m "updated..$(date)"
 sleep $sleeptime
 git push origin
